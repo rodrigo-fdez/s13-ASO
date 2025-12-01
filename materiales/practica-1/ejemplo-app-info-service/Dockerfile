@@ -14,12 +14,12 @@ COPY app.py .
 
 # Cloud Run requiere que la aplicación escuche en el puerto definido por PORT
 # El puerto se configura automáticamente por Cloud Run
-ENV PORT=8080
+#ENV PORT=8080
 
 # Exponer puerto (documentación, Cloud Run lo maneja automáticamente)
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
 # Usar flask run en lugar de python app.py para mejor compatibilidad
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["python", "app.py"]
 
