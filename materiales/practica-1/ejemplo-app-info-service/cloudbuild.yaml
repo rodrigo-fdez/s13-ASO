@@ -21,6 +21,16 @@ steps:
       - 'push'
       - '--all-tags'
       - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/app-info-service'
+  # Paso 3: Actualizar cloud run para la nueva imagen
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'app-info-service'
+      - '--image'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/app-info-service:${BUILD_ID}'
 
 # Configuración de imágenes a construir
 images:
