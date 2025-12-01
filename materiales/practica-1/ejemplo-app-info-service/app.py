@@ -9,7 +9,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Contador simple en memoria (muestra escalado en Cloud Run)
+# Contador simple en memoria (muestra escalado en Cloud Run) patata
 request_count = 0
 
 @app.route('/')
@@ -41,6 +41,7 @@ def info():
     """Información del contenedor y entorno"""
     return {
         'hostname': os.environ.get('HOSTNAME', 'unknown'),
+        'description': 'Información de la APP'
         'environment': os.environ.get('ENVIRONMENT', 'not-set'),
         'app_name': os.environ.get('APP_NAME', 'not-set'),
         'port': os.environ.get('PORT', 'not-set')
